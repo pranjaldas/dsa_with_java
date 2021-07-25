@@ -1,4 +1,6 @@
 # dsa_with_java
+Command to compile: javac -d classpath *.javac
+Command to run: java Main
 DATA STRUCTURES AND ALGORITHMS PRACTICE IN JAVA
 1. Arrays
 2. 2D Arrays
