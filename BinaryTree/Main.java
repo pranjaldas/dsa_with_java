@@ -1,7 +1,6 @@
 class Main{
     public static void main(String[] args){
-        System.out.println("Hellow prithibi");
-
+        
         // NODE CREATION
         // BinaryNode n1=new BinaryNode();
         // n1.value= "N1";
@@ -56,7 +55,22 @@ class Main{
         // System.out.println("\nLevel  Order traversal: ");
         // binaryTree.levelOrder(binaryTree.root);
     
-        BinaryTreLL binaryTree= new BinaryTreLL();
+        // BinaryTreLL binaryTree= new BinaryTreLL();
+        // binaryTree.insert("N1");
+        // binaryTree.insert("N2");
+        // binaryTree.insert("N3");
+        // binaryTree.insert("N4");
+        // binaryTree.insert("N5");
+        // binaryTree.insert("N6");
+        // binaryTree.insert("N7");
+        // binaryTree.insert("N8");
+        // System.out.println("\n");
+        // binaryTree.levelOrder(binaryTree.root);
+
+        // BinaryNode node=binaryTree.getDeepest();
+        // System.out.println("Value of deepest: "+node.value);
+
+        BinaryTreeArray binaryTree= new BinaryTreeArray(7);
         binaryTree.insert("N1");
         binaryTree.insert("N2");
         binaryTree.insert("N3");
@@ -64,11 +78,18 @@ class Main{
         binaryTree.insert("N5");
         binaryTree.insert("N6");
         binaryTree.insert("N7");
-        binaryTree.insert("N8");
-        System.out.println("\n");
-        binaryTree.levelOrder(binaryTree.root);
-
-        BinaryNode node=binaryTree.getDeepest();
-        System.out.println("Value of deepest: "+node.value);
+        System.out.println("Pre ORDER TRAVERSAL:\n");
+        binaryTree.preOrder(1);
+        System.out.println("\nPost ORDER TRAVERSAL:\n");
+        binaryTree.postOrder(1);
+        System.out.println("\nIn ORDER TRAVERSAL:\n");
+        binaryTree.inOrder(1);
+        System.out.println("\nLevel ORDER TRAVERSAL:\n");
+        binaryTree.levelOrder();
+        System.out.println("\nSEARCHING:\n");
+        binaryTree.search("N9");
+        System.out.println("\nDELEING:\n");
+        binaryTree.delete("N2");
+        binaryTree.levelOrder();
     }
 }
