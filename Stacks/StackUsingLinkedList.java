@@ -2,7 +2,8 @@ class StackUsingLinkedList{
     int size;
     Node head;
     Node tail;
-
+    
+    
     //CREATING A STACK LIST
     public void createStack(int value) {
         head = new Node(value);
