@@ -4,7 +4,6 @@
 ## Command to run: 
     java Main
 DATA STRUCTURES AND ALGORITHMS PRACTICE IN JAVA
-0. Recursion.
 1. Arrays.
 2. 2D Arrays.
 3. Singly Linked List)
@@ -13,3 +12,4 @@ DATA STRUCTURES AND ALGORITHMS PRACTICE IN JAVA
 6. Stack
 7. Queue
 8. Binary Tree
+9. Recursion.
