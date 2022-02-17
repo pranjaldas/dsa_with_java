@@ -1,3 +1,4 @@
+// EXPONENTIAL TIME COMPLEXITY O(2^n)
 class Fibonacci{
     static int fib(int n){
     if (n <= 1)
