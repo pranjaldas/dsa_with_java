@@ -3,7 +3,7 @@
     javac -d classpath *.java
 ## Command to run: 
     java Main
-DATA STRUCTURES AND ALGORITHMS PRACTICE IN JAVA
+#**DATA STRUCTURES AND ALGORITHMS PRACTICE IN JAVA**
 1. Arrays.
 2. 2D Arrays.
 3. Singly Linked List)
