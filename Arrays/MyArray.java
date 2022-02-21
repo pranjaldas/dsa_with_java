@@ -35,7 +35,7 @@ public class MyArray {
 
     //SEARCHING AN ELEMENT IN THE ARRAY
     public void search(int value)throws java.lang.Exception{
-        for(int i=0; i<=this.array.length; i++){
+        for(int i=0; i<this.array.length; i++){
             if(this.array[i]==value){
                 System.out.println("Item Found");
                 return;  

@@ -2,7 +2,7 @@
 ## Command to compile: 
     javac -d classpath *.java
 ## Command to run: 
-    java Main
+    java -cp classpath/ Main
 #**DATA STRUCTURES AND ALGORITHMS PRACTICE IN JAVA**
 1. Arrays.
 2. 2D Arrays.
