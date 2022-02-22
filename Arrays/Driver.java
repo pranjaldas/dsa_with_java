@@ -26,5 +26,8 @@ public class Driver {
         my2DimArray.traverse();
         my2DimArray.search(20);
         my2DimArray.search(27);
+
+        my2DimArray.delete(20);
+        m
     }
 }

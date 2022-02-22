@@ -77,4 +77,19 @@ public class MyTwoDimArray {
         System.out.println(String.format("%s not found",value));
     }
 
+    // DELETE THE ELEMENT THE ARRAY
+    public void delete(int value){
+        for (int i = 0; i < this.row; i++){
+            for (int j = 0; j < this.column;j++){
+                if(this.myArray[i][j]==value){
+                    this.myArray[row][column]=Integer.MIN_VALUE;
+                    System.out.println(String.format("%s has deleted.",value));
+                    return;
+                }
+            }
+
+        }
+        System.out.println(String.format("%s not found to delete",value));
+    }
+
 }
