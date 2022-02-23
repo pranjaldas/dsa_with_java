@@ -123,5 +123,4 @@ class SinglyLinkedList{
         }
 
     }
-    public static int addTwoNumbers
 }

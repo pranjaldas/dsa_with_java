@@ -4,11 +4,11 @@
 public class Permutation {
     public static void main(String[] args) throws Exception {
         int[] array1 = {1,2,3,4,5};
-        int[] array2 = {1,3,2,4,5};
+        int[] array2 = {1,3,2,7,5};
         System.out.println("Palindrome status: "+checkPermutation(array1, array2));
 
     }
-    // BRUITE FORCE APPROACH WITH COMPLEXITY O(n^2)
+    // BRUITE FORCE APPROACH WITH COMPLEXITY O(m*n)
     public static boolean checkPermutation(int[] array1,int[] array2){
         if(array1.length != array2.length){
             return false;
@@ -28,8 +28,23 @@ public class Permutation {
         }
         return true;
     }
+    // IN AN EFFICIENT WAY, TO CHECK PERMUTATION WE CAN CHECK THAT BOTH THE ARRAY ELEMENST SUM
+    // AND BOTH THE ARRAY ELEMENTS PRODUCT SHOULD BE SAME
+    // COMPLEXITY IS O(m)+O(n)
     public static boolean checkPermutation2(int[] array1,int[] array2){
-        
-        return false;
+        int firstsum=0,secondsum= 0;
+        int firstproduct=1,secondproduct= 1;
+        for(int i=0;i<array1.length; i++){
+            firstsum +=array1[i];
+            firstproduct *=array1[i];
+        }
+        for(int j=0;j<array2.length; j++){
+            secondsum +=array2[j];
+            secondproduct *=array2[j];
+        }
+        if(firstsum == secondsum && firstproduct==secondproduct)
+            return true;
+        else 
+            return false;
     }
 }
