@@ -41,11 +41,11 @@ class SinglyLinkedList{
         if(head==null){
             System.out.println("No Linked List is created,Going to create One");
             createList(value);
-        }else if(location > size){
+        }else if(location > size || location<1){
             System.out.println("location can not be larger then the size");
         }else{
             Node tempNode= head;
-            for(int i=1;i<location;i++){
+            for(int i=1;i<location-1;i++){
                 tempNode= tempNode.next; 
             }
             Node newNode=new Node();

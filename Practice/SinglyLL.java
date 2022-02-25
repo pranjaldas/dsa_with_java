@@ -53,5 +53,23 @@ public class SinglyLL {
         tail= newNode;
         size++;
     }
+    // INSERT INTO A SPECIFIC LOCATION
+    public void insertInLocation(int location,int value){
+        if(this.head == null){
+            createLinkedList(value);
+        }else if(location > this.size){
+            System.out.println("Size is less");
+        }else{
+            Node tempNode= this.head;
+            for(int i=1;i<location;i++){
+                tempNode= tempNode.next;
+            }
+            Node newNode = new Node();
+            newNode.value= value;
+            newNode.next=tempNode.next;
+            tempNode.next= newNode;
+            this.size++;
+        }
+    }
     
 }
