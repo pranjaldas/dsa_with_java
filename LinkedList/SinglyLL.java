@@ -71,5 +71,12 @@ public class SinglyLL {
             this.size++;
         }
     }
+     
+    // PARTITION OF LINKED LIST BASED ON A VALUE x, SUCH THAT ALL THE NODES VALUE LESS THAN
+    // X COMES BEFORE ALL THE NODES GREATER THAN OR EQUAL TO X.
+    // TODO
+    void partition(int value){
+
+    }
     
 }

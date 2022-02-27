@@ -1,3 +1,4 @@
+import java.util.*;
 class CircularDLL{
     public DoublyNode head;
     public DoublyNode tail;
@@ -119,10 +120,10 @@ class CircularDLL{
         }
     }
     // DELETE AN ELEMENT
-    public void delete(int value){
+    public boolean delete(int value){
         if(head == null){
             System.out.println("\nThe array is null!!!");
-            return;
+            return false;
         }else{
             DoublyNode currentNode= head;
             for(int i=1;i<=size; i++){
@@ -134,7 +135,7 @@ class CircularDLL{
                         tail.next= currentNode.next;
                         size--;
                         System.out.println("\n Deleted succesfully !!!");
-                        return;
+                        return true;
                     }else if(i == size){
                         // DELETE THE LAST NODE
                         currentNode.prev.next= head;
@@ -142,14 +143,14 @@ class CircularDLL{
                         head.prev= currentNode.prev;
                         size--;
                         System.out.println("\n Deleted succesfully !!!");
-                        return;
+                        return true;
                     }else{
                         // DELETE FROM THE MIDDLE
                         currentNode.next.prev=currentNode.prev;
                         currentNode.prev.next= currentNode.next;
                         size--;
                         System.out.println("\n Deleted succesfully !!!");
-                        return;
+                        return true;
                     }
                     
                 }else{
@@ -158,7 +159,52 @@ class CircularDLL{
                 }
             }
             System.out.println("\nThe element not found!!!");
+            return false;
 
         }
     }
+    // REMOVE DUBLICATES
+    public void removedublicates(){
+        HashSet<Integer> hset= new HashSet<>();
+        if(head == null){
+            System.out.println("The list is empty!!sss!");
+            return;
+        }else{
+            DoublyNode currentNode= head;
+            for(int i=1;i <= size;i++){
+                if(hset.contains(currentNode.value)){
+                    delete(currentNode.value);
+                    currentNode= currentNode.next;
+                }else{
+                    hset.add(currentNode.value);
+                    currentNode= currentNode.next;
+                }
+            }
+        
+        }
+        System.out.println("\nThe elements in CDLL that are unique are: "+hset);
+
+    }
+    // PRINT nth ELEMENT FROM THE LAST NODE
+    public void printNthfromTail(int nth){
+        if(nth > size){
+            System.out.println("\nThe list is under size");
+            return;
+        }else if(nth == 1){
+            // PRINT TAIL
+            System.out.println("\nIt is the tail: "+tail.value);
+        }else if(nth == size){
+            // PRINT HEAD
+            System.out.println("\nIt is the head: "+head.value);
+        }else{
+            DoublyNode currentNode = tail;
+            for(int i= 1; i < nth; i++){
+                currentNode= currentNode.prev;
+            }
+            System.out.println("\n The "+nth+"th node value is : "+currentNode.value);
+
+        }
+
+    }
+
 }

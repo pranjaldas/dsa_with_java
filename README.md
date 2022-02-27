@@ -6,10 +6,11 @@
 #**DATA STRUCTURES AND ALGORITHMS PRACTICE IN JAVA**
 1. Arrays.
 2. 2D Arrays.
-3. Singly Linked List)
-4. Doubly LinkedList
-5. Circular LinkedList
-6. Stack
-7. Queue
-8. Binary Tree
-9. Recursion.
+3. Singly Linked List
+4. Circular Singly Linked List
+5. Doubly LinkedList
+6. Circular Doubly LinkedList
+7. Stack
+8. Queue
+9. Binary Tree
+10. Recursion.
