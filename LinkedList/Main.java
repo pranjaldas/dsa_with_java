@@ -9,28 +9,44 @@ public class Main {
         // System.out.println("The list is: ");
         // sll.printList();
 
-        SinglyLL sll1=  new SinglyLL();
-        sll1.insertInEnd(2);
-        sll1.insertInEnd(3);
-        sll1.insertInEnd(91);
+        // SinglyLL sll1=  new SinglyLL();
+        // sll1.insertInEnd(2);
+        // sll1.insertInEnd(3);
+        // sll1.insertInEnd(91);
       
         
 
-        SinglyLL sll2=  new SinglyLL();
-        sll2.insertInEnd(4);
-        sll2.insertInEnd(3);
-        sll2.insertInEnd(9);
+        // SinglyLL sll2=  new SinglyLL();
+        // sll2.insertInEnd(4);
+        // sll2.insertInEnd(3);
+        // sll2.insertInEnd(9);
 
-        addSameNode(sll1,sll2,90);
-        addSameNode(sll1,sll2,91);
+        // addSameNode(sll1,sll2,90);
+        // addSameNode(sll1,sll2,91);
 
-        sll1.printList();
-        System.out.println('\n');
-        sll2.printList();
-        System.out.println('\n');
+        // sll1.printList();
+        // System.out.println('\n');
+        // sll2.printList();
+        // System.out.println('\n');
 
        
-        findIntersect(sll1,sll2);
+        // findIntersect(sll1,sll2);
+
+
+
+        SinglyLL sll1= new SinglyLL();
+        sll1.insertInEnd(2);
+        sll1.insertInEnd(8);
+        sll1.insertInEnd(10);
+        sll1.insertInEnd(3);
+        sll1.insertInEnd(7);
+        sll1.insertInEnd(4);
+        sll1.insertInEnd(12);
+        sll1.insertInEnd(6);
+        sll1.printList();
+        System.out.println('\n');
+
+        partition(7, sll1);
 
 
         
@@ -93,6 +109,34 @@ public class Main {
         sll2.tail.next= newNode;
         sll2.tail= newNode;
         sll2.size++;
+    }
+
+    // PARTITION OF LINKED LIST BASED ON A VALUE x, SUCH THAT ALL THE NODES VALUE LESS THAN
+    // X COMES BEFORE ALL THE NODES GREATER THAN OR EQUAL TO X.
+    static void partition(int partitionValue, SinglyLL sll1){
+        if(sll1.head == null){
+            System.out.println("\nThe List is empty!!!");
+            return;
+        }else if(sll1.size == 1){
+            System.out.println("\nOnly one node in the list coud not partition");
+            return;
+        }else{
+            // IF NODE VALUE IS GREATER THAT PARTITION VALUE, ADD THE NODE IN THE BEGINING 
+            // OF THE NEW LIST ELSE ADD IT IN THE BEGINING OF THE LIST
+            SinglyLL newSll = new SinglyLL();
+            Node sll1Current = sll1.head;
+            for(int i=1;i<= sll1.size;i++){
+                if(sll1Current.value >= partitionValue){
+                    newSll.insertInEnd(sll1Current.value);
+                }else{
+                    newSll.insertInBeginning(sll1Current.value);
+                }
+                sll1Current = sll1Current.next;
+            }
+            newSll.printList();
+            
+        }
+
     }
     
 
