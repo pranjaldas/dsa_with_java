@@ -1,18 +1,20 @@
-class QueueArray{
+class MyQueue{
     int arr[];
-    int startIndex;
-    int endIndex;
+    int front;
+    int rear;
+    int size;
 
     //Creating the Queue using constructor
-    public QueueArray(int size){
+    public MyQueue(int size){
+        this.size= size;
         this.arr = new int[size];
-        this.startIndex = 0;
-        this.endIndex = 0;
+        this.front = 0;
+        this.rear = 0;
         System.out.println("Queue Created Successfully");
     }
 
     public boolean isFull(){
-        if(endIndex== this.arr.length-1)
+        if(rear== this.arr.length-1)
             return true;
         else
             return false;
@@ -20,7 +22,7 @@ class QueueArray{
     }
 
     public boolean isEmpty(){
-        if(this.startIndex==this.endIndex)
+        if(this.front==this.rear)
             return true;
         else
             return false;
@@ -29,8 +31,8 @@ class QueueArray{
         if(this.isFull()){
             System.out.println("Queue is full");
         }else{
-            this.arr[this.endIndex]= value;
-            endIndex++;
+            this.arr[this.rear]= value;
+            rear++;
         }
 
         
@@ -39,11 +41,11 @@ class QueueArray{
         if(this.isEmpty()){
             return -1;
         }else{
-            int item= this.arr[this.startIndex];
-            for(int i=0;i<this.endIndex-1;i++){
+            int item= this.arr[this.front];
+            for(int i=0;i<this.rear-1;i++){
                 this.arr[i]=this.arr[i+1];
             }
-            this.endIndex--;
+            this.rear--;
             return item;
 
         }
@@ -52,13 +54,13 @@ class QueueArray{
     {
         int i;
      
-        if(this.startIndex==this.endIndex) {
+        if(isEmpty()) {
             System.out.println("\nQueue is Empty\n");
             return;
         }
   
         // traverse front to rear and print elements
-        for (i = this.startIndex; i < this.endIndex; i++) {
+        for (i = this.front; i < this.rear; i++) {
             System.out.print(this.arr[i]+" <-- ");
         }
         return;
