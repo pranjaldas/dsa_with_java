@@ -57,6 +57,45 @@ class BinaryTreLL{
             return presentNode;
         
     }
+    public void deleteDeepest(){
+        Queue<BinaryNode> queue= new LinkedList<BinaryNode>();
+        // HERE WE ASSUMED THAT THE TREE IS NOT EMPTY
+        queue.add(root);
+        BinaryNode previousNode, presentNode = null;
+        while(!queue.isEmpty()){
+            previousNode = presentNode;
+            presentNode = queue.remove();
+            if(presentNode.left == null){
+                previousNode.right= null;
+                return;
+            }else if(presentNode.right==null){
+                presentNode.left= null;
+                return;
+            }else{
+                queue.add(presentNode.left);
+                queue.add(presentNode.right);
+            }
+        }
+
+    }
+    // DELETING IN BINARY TREE STEPS:
+    // 1. SEARCH THE ELEMENT
+    // 2. GET THE DEEPEST ELEMENT IN THE TREE
+    // 3. SET THE DEEPEST ELEMENT VALUE TO THE ELEMENT TO BE DELETED
+    // 4. DELETE THE DEEPEST ELEMENT
+    public void delete(String value){
+        BinaryNode toBeDeleted= search(value);
+        if(toBeDeleted != null){
+            BinaryNode theDeepest= getDeepest();
+            toBeDeleted.value= theDeepest.value;
+            deleteDeepest();
+            System.out.println("Node deleted succuesfully");
+            return;
+        }
+        System.out.println("Node not found");
+
+
+    }
 
     public void insert(String value){
         // INSERTING INTO THE VACANT NODE
@@ -88,15 +127,17 @@ class BinaryTreLL{
         }
     }
 
-    public void search(String value){
+    public BinaryNode search(String value){
        // LEVELORDER TRAVERSAL
        Queue<BinaryNode> queue =new LinkedList<BinaryNode>();
        queue.add(root);
+       BinaryNode searchNode= null;
        while(!queue.isEmpty()){
            BinaryNode presentNode= queue.remove();
            if(presentNode.value.equals(value)){
+             searchNode= presentNode;
              System.out.println(value + " Found!");
-             return;
+             return searchNode;
            }else{
             if(presentNode.left != null)
                 queue.add(presentNode.left);
@@ -105,5 +146,6 @@ class BinaryTreLL{
            }
        } 
        System.out.println(value + " Not Found!");
+       return searchNode;
     }
 }
