@@ -1,15 +1,19 @@
 public class Driver {
     public static void main(String args[]){
         BinarySearchTree bst= new BinarySearchTree();
-        bst.insert(60);
-        bst.insert(50);
         bst.insert(70);
-        bst.insert(65);
-        bst.insert(3);
+        bst.insert(50);
+        bst.insert(90);
+        bst.insert(30);
+        bst.insert(60);
+        bst.insert(80);
+        bst.insert(100);
+        bst.insert(20);
+        bst.insert(40);
         bst.levelOrder();
-        BinaryNode node3=bst.search(3);
-        BinaryNode node7=bst.search(7);
-        System.out.println("OK node3"+node3);
-        System.out.print("OK node7"+node7);
+        bst.deleteNode(bst.root,20);
+        System.out.println("\n");
+        bst.levelOrder();
+        
     }
 }

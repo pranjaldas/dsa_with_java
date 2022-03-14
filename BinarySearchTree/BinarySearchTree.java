@@ -85,13 +85,60 @@ public class BinarySearchTree {
             System.out.println("\n"+value+" Found in the BST");
             return currentNode;
         }else if(value <= currentNode.value){
-            search(currentNode.left, value);
+            return search(currentNode.left, value);
         }else{
-            search(currentNode.right, value);
+            return search(currentNode.right, value);
         }
-        return null;
+        
     }
     public BinaryNode search(int value){
         return search(root,value);
     }
+    // THREE CASES IN DELETING A NODE
+    // CASE 1: DELETE THE NODE THAT IN A LEAF NODE
+    // CASE 2: DELETE THE NODE THAT HAS ONE CHILD
+    // CASE 3: DELETE THE NODE THAT HAVE TWO CHILDS
+    // IN CASE 3, FIND THE NODE TO BE DELETED AND FIND THE SMALLEST NODE IN THE RIGHT SUB TREE (SUCCESSOR)
+    // SWAP THE VALUES BETWEEN THE SUCCESSOR AND THE NODE TO DELETE
+    // NOW CALL THE SAME DELETE METHOD FOR THE SUCCESSOR NODE
+    public BinaryNode deleteNode(BinaryNode currentNode, int value){
+        if(currentNode== null){
+            System.out.println("Value not found in the binary tree");
+            return null;
+        }
+        
+        if(value < currentNode.value){
+            currentNode.left= deleteNode(currentNode.left, value);
+        }else if(value > currentNode.value){
+            currentNode.right= deleteNode(currentNode.right, value);
+        }else{
+            if(currentNode.left != null && currentNode.right != null){
+                // DELETE THE NODE
+                // FIND THE SUCCESOR
+                BinaryNode successorNode= findSuccessor(currentNode.right);
+                currentNode.value= successorNode.value;
+                successorNode.value= value;
+                currentNode.right = deleteNode(currentNode.right, successorNode.value);
+            }else if(currentNode.left != null){
+                System.out.println("\n"+value+"Deleted succesfully");
+                currentNode.left = null;
+            }else if(currentNode.right != null){
+                System.out.println("\n"+value+"Deleted succesfully");
+                currentNode.right= null;
+            }else{
+                System.out.println("\n"+value+"Deleted succesfully");
+                currentNode =null;
+            }
+        }
+        return currentNode;
+        
+    }
+    public BinaryNode findSuccessor(BinaryNode node){
+        if(node.left == null){
+            return node;
+        }else{
+            return findSuccessor(node.left);
+        }
+    }
+
 }
