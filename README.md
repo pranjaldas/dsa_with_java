@@ -15,3 +15,4 @@
 9. Binary Tree
 10. Recursion.
 11. Binary Search Tree
+12. AVL Tree
