@@ -34,5 +34,7 @@ class Main{
         for(Laptop laptop: laptops){
             System.out.println(laptop.getName());
         }
+
+        
     }
 }
