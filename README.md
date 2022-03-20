@@ -16,3 +16,5 @@
 10. Recursion.
 11. Binary Search Tree
 12. AVL Tree
+13. Binary Heap
+14. Trie
