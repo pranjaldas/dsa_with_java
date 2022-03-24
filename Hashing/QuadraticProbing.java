@@ -1,9 +1,7 @@
-import java.util.*;
-class LinearProbing{
+class QuadraticProbing{
     String[] hashTable;
     int usedCellsNumber;
-
-    public LinearProbing(int size){
+    QuadraticProbing(int size){
         hashTable = new String[size];
         usedCellsNumber=0;
     }
@@ -38,21 +36,24 @@ class LinearProbing{
         if(getLoadFactor() >= 7.5){
             rehash(word);
         }else{
-            int hashVal= modASCIIhashFunction(word,hashTable.length);
-            for(int i= hashVal; i<hashVal+hashTable.length;i++){
-                int newIndex= i % hashTable.length;
-                if(hashTable[newIndex] ==null ){
+            int index = modASCIIhashFunction(word, hashTable.length);
+            int counter = 0;
+            for(int i=index ;i< index + hashTable.length ;i++){
+                int newIndex= (index+ (counter+counter)) % hashTable.length;
+                if(hashTable[newIndex] == null){
                     hashTable[newIndex]= word;
-                    System.out.println(word+ " inserted");
-                    break;
-                }else{
-                    System.out.println(word+ " not inserted in index "+newIndex+", going to check for next place");
+                    usedCellsNumber++;
+                    System.out.println(word+ " inserted successfully !!!");
+                    return;
                 }
+                counter++;
             }
+            System.out.println(word+ " not inserted successfully !!!");
         }
-        usedCellsNumber++;
+        
 
     }
+
     public void displayHashTable() {
         if (hashTable == null) {
             System.out.println("\nHashTable does not exists");
@@ -64,22 +65,25 @@ class LinearProbing{
             }
         }
     }
-    public boolean searchHashtable(String word){
+     public boolean searchHashtable(String word){
         int index= modASCIIhashFunction(word, hashTable.length);
+        int counter = 0;
         for(int i= index;i <index+ hashTable.length; i++){
-            int newIndex= i % hashTable.length;
+            int newIndex= (index+(counter*counter)) % hashTable.length;
             if(hashTable[newIndex] != null && hashTable[newIndex]== word){
                 System.out.println(word+" found in the index "+newIndex);
                 return true;
             }
+            counter++;
 
         }
         return false;
     }
     public boolean deleteFromHashtable(String word){
         int index= modASCIIhashFunction(word, hashTable.length);
+        int counter = 0;
         for(int i= index;i <index+ hashTable.length; i++){
-            int newIndex= i % hashTable.length;
+            int newIndex= (index+ (counter *counter)) % hashTable.length;
             if(hashTable[newIndex] != null && hashTable[newIndex]== word){
                 hashTable[newIndex]= null;
                 System.out.println(word+" deleted successfully");

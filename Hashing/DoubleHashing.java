@@ -1,18 +1,38 @@
-import java.util.*;
-class LinearProbing{
+class DoubleHashing{
     String[] hashTable;
     int usedCellsNumber;
-
-    public LinearProbing(int size){
+    DoubleHashing(int size){
         hashTable = new String[size];
         usedCellsNumber=0;
     }
+    // HASH FUNCTION 1
     public int modASCIIhashFunction(String word, int sizeOfhashtable){
         char[] wordToCharArr= word.toCharArray();
         int sum = 0;
         for(int i=0; i<wordToCharArr.length;i++){
             // CONVERTING CHAR TO INT MEANS FINDING THE ASCI VALUE OF THE CHARACTER
             sum += wordToCharArr[i];
+        }
+        return sum % sizeOfhashtable;
+    }
+    // HASH FUNCTION 2
+    public int addAlldigits(int sum){
+        int value= 0;
+        while(sum > 0){
+            value += sum % 10;
+            sum = sum/10;
+        }
+        return value;
+    }
+    public int hashFunctionTwo(String word, int sizeOfhashtable){
+        char[] wordToCharArr= word.toCharArray();
+        int sum = 0;
+        for(int i=0; i<wordToCharArr.length;i++){
+            // CONVERTING CHAR TO INT MEANS FINDING THE ASCI VALUE OF THE CHARACTER
+            sum += wordToCharArr[i];
+        }
+        while(sum > sizeOfhashtable){
+            sum = addAlldigits(sum);
         }
         return sum % sizeOfhashtable;
     }
@@ -38,21 +58,23 @@ class LinearProbing{
         if(getLoadFactor() >= 7.5){
             rehash(word);
         }else{
-            int hashVal= modASCIIhashFunction(word,hashTable.length);
-            for(int i= hashVal; i<hashVal+hashTable.length;i++){
-                int newIndex= i % hashTable.length;
-                if(hashTable[newIndex] ==null ){
+            int hashValueOne = modASCIIhashFunction(word, hashTable.length);
+            int hashValueTwo= hashFunctionTwo(word,hashTable.length);
+            for(int i=0 ;i< hashTable.length ;i++){
+                int newIndex= hashValueOne + (hashValueTwo * i);
+                if(hashTable[newIndex] == null){
                     hashTable[newIndex]= word;
-                    System.out.println(word+ " inserted");
-                    break;
-                }else{
-                    System.out.println(word+ " not inserted in index "+newIndex+", going to check for next place");
+                    usedCellsNumber++;
+                    System.out.println(word+ " inserted successfully !!!");
+                    return;
                 }
             }
+            System.out.println(word+ " not inserted successfully !!!");
         }
-        usedCellsNumber++;
+        
 
     }
+
     public void displayHashTable() {
         if (hashTable == null) {
             System.out.println("\nHashTable does not exists");
@@ -64,22 +86,25 @@ class LinearProbing{
             }
         }
     }
-    public boolean searchHashtable(String word){
+     public boolean searchHashtable(String word){
         int index= modASCIIhashFunction(word, hashTable.length);
+        int counter = 0;
         for(int i= index;i <index+ hashTable.length; i++){
-            int newIndex= i % hashTable.length;
+            int newIndex= (index+(counter*counter)) % hashTable.length;
             if(hashTable[newIndex] != null && hashTable[newIndex]== word){
                 System.out.println(word+" found in the index "+newIndex);
                 return true;
             }
+            counter++;
 
         }
         return false;
     }
     public boolean deleteFromHashtable(String word){
         int index= modASCIIhashFunction(word, hashTable.length);
+        int counter = 0;
         for(int i= index;i <index+ hashTable.length; i++){
-            int newIndex= i % hashTable.length;
+            int newIndex= (index+ (counter *counter)) % hashTable.length;
             if(hashTable[newIndex] != null && hashTable[newIndex]== word){
                 hashTable[newIndex]= null;
                 System.out.println(word+" deleted successfully");
