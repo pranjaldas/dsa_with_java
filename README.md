@@ -18,3 +18,4 @@
 12. AVL Tree
 13. Binary Heap
 14. Hashing
+15. Sorting Algorithms
