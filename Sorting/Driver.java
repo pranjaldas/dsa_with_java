@@ -1,5 +1,3 @@
-import javafx.scene.chart.BubbleChart;
-
 public class Driver {
     public static void main(String args[]){
         // BubbleSort mBubbleSort = new BubbleSort(new int[] {6,10,3,4,9,1,5,8});
@@ -21,6 +19,14 @@ public class Driver {
         // InsertionSort iSort= new InsertionSort(new Integer[] {6,10,3,4,9,1,5,8});
         // iSort.sort();
         // iSort.print();
+
+        // BucketSort bSort= new BucketSort(new int[] {6,10,3,4,9,1,5,8});
+        // bSort.sort();
+        // bSort.print();
+
+        int[] array= {6,10,3,4,9,1,5,8};
+        MergeSort.sort(array,0,array.length-1);
+        MergeSort.printArray(array);
         
 
     }

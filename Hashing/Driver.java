@@ -1,3 +1,5 @@
+package Hashing;
+
 public class Driver {
     public static void main(String args[]){
         // MyDirectChainning directChaining = new MyDirectChainning(15); 

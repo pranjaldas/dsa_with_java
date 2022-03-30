@@ -32,7 +32,7 @@ public class BinaryHeap {
             System.out.println("The Binary Heap is empty \n");
         else{
             for(int i=1; i<= sizeOfheap; i++){
-                System.out.println(heap[i]+" ");
+                System.out.print(heap[i]+" ");
             }
         }
     }

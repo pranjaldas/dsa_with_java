@@ -1,3 +1,5 @@
+package Hashing;
+import java.util.*;
 class DoubleHashing{
     String[] hashTable;
     int usedCellsNumber;
