@@ -19,3 +19,4 @@
 13. Binary Heap
 14. Hashing
 15. Sorting Algorithms
+16. Searching Algorithms
