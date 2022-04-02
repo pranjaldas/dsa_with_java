@@ -20,3 +20,4 @@
 14. Hashing
 15. Sorting Algorithms
 16. Searching Algorithms
+17. Graphs
