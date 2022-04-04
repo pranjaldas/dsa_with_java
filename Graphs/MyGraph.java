@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 public class MyGraph {
+    // GRAPH REPRESENTATION USING ADJACENTY MATRIX
     List<GraphNode> nodeList= new ArrayList<GraphNode>();
     int[][] adjacentMatrix;
     MyGraph(List<GraphNode> nodeList){
@@ -12,21 +13,21 @@ public class MyGraph {
         adjacentMatrix[j][j]=1;
     }
     public String toString() {
-        StringBuilder s = new StringBuilder();
-        s.append("   ");
-        for (int i = 0; i < nodeList.size(); i++) {
-          s.append(nodeList.get(i).name + " ");
+      StringBuilder s = new StringBuilder();
+      s.append("   ");
+      for (int i = 0; i < nodeList.size(); i++) {
+        s.append(nodeList.get(i).name + " ");
+      }
+      s.append("\n");
+      for (int i = 0; i < nodeList.size(); i++) {
+        s.append(nodeList.get(i).name + ": ");
+        for (int j : adjacentMatrix[i]) {
+          s.append((j) + " ");
         }
         s.append("\n");
-        for (int i = 0; i < nodeList.size(); i++) {
-          s.append(nodeList.get(i).name + ": ");
-          for (int j : adjacentMatrix[i]) {
-            s.append((j) + " ");
-          }
-          s.append("\n");
-        }
-        return s.toString();
       }
+      return s.toString();
+    }
 
     
 }
