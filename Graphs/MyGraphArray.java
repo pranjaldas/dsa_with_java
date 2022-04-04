@@ -3,16 +3,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 public class MyGraphArray {
     // GRAPH REPRESENTATION USING ADJACENTY MATRIX
-    List<GraphNodeArray> nodeList= new ArrayList<GraphNodeArray>();
-    int[][] adjacentMatrix;
-    MyGraphArray(List<GraphNodeArray> nodeList){
-        this.nodeList= nodeList;
-        adjacentMatrix= new int[nodeList.size()][nodeList.size()];
+    ArrayList<GraphNodeArray> nodeList= new ArrayList<GraphNodeArray>();
+    int[][] adjacencyMatrix;
+    public MyGraphArray(ArrayList<GraphNodeArray> nodeList) {
+      this.nodeList = nodeList;
+      adjacencyMatrix = new int[nodeList.size()][nodeList.size()];
     }
-    public void addUndirectedEdge(int i,int j){
-        adjacentMatrix[i][j]=1;
-        adjacentMatrix[j][j]=1;
+  
+    public void addUndirectedEdge(int i, int j) {
+      adjacencyMatrix[i][j] = 1;
+      adjacencyMatrix[j][i] = 1;
     }
+  
     public String toString() {
       StringBuilder s = new StringBuilder();
       s.append("   ");
@@ -22,7 +24,7 @@ public class MyGraphArray {
       s.append("\n");
       for (int i = 0; i < nodeList.size(); i++) {
         s.append(nodeList.get(i).name + ": ");
-        for (int j : adjacentMatrix[i]) {
+        for (int j : adjacencyMatrix[i]) {
           s.append((j) + " ");
         }
         s.append("\n");
@@ -32,8 +34,8 @@ public class MyGraphArray {
     // TO GET NEIGHBOURS OF A NODE
     public ArrayList<GraphNodeArray> getNeighbours(GraphNodeArray node){
       ArrayList<GraphNodeArray> neighbours= new ArrayList<GraphNodeArray>();
-      for(int i=0; i<adjacentMatrix.length;i++){
-        if(adjacentMatrix[node.index][i]==1){
+      for(int i=0; i<adjacencyMatrix.length;i++){
+        if(adjacencyMatrix[node.index][i]==1){
           neighbours.add(nodeList.get(i));
         }
       }
