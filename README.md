@@ -1,6 +1,5 @@
-# TASK:
-Create a folder named *classpath* in every folder to store Bytecode files (.class) files
-# dsa_with_java
+# DATA STRUCTURES AND ALGORITHMS
+Create a folder named *classpath* in every folder to store Bytecode (.class) files.
 ## Command to compile: 
     javac -d classpath *.java
 ## Command to run: 
