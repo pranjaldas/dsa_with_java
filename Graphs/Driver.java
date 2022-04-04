@@ -1,14 +1,14 @@
 import java.util.*;
 public class Driver {
     public static void main(String args[]){
-        boolean test= false;
+        boolean test= true;
         if(test){
-            List<GraphNode> list= new ArrayList<GraphNode>();
-            list.add(new GraphNode("A",0));
-            list.add(new GraphNode("B",1));
-            list.add(new GraphNode("C",2));
-            list.add(new GraphNode("D",3));
-            list.add(new GraphNode("E",4));
+            List<GraphNodeArray> list= new ArrayList<GraphNodeArray>();
+            list.add(new GraphNodeArray("A",0));
+            list.add(new GraphNodeArray("B",1));
+            list.add(new GraphNodeArray("C",2));
+            list.add(new GraphNodeArray("D",3));
+            list.add(new GraphNodeArray("E",4));
             /**
              *  (A)----(B)
              *   | \     \
@@ -17,7 +17,7 @@ public class Driver {
              *  (C)----(D)
              *   ABOVE IS A GRAPH, REPRESENT IT IN ADJACENT MATRIX
              */
-            MyGraph mGraph= new MyGraph(list);
+            MyGraphArray mGraph= new MyGraphArray(list);
             mGraph.addUndirectedEdge(0,1);
             mGraph.addUndirectedEdge(0,2);
             mGraph.addUndirectedEdge(0,3);
@@ -25,6 +25,7 @@ public class Driver {
             mGraph.addUndirectedEdge(2,3);
             mGraph.addUndirectedEdge(3,4);
             System.out.println(mGraph.toString());
+            mGraph.bfs();
         }else{
             List<GraphNodeList> list= new ArrayList<GraphNodeList>();
             list.add(new GraphNodeList("A",0));
