@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Stack;
 import java.util.ArrayList;
 import java.util.LinkedList;
 public class MyGraphArray {
@@ -66,6 +67,34 @@ public class MyGraphArray {
       for (GraphNodeArray node : nodeList) {
         if(!node.isVisited) {
           bfs(node);
+        }
+      }
+    }
+
+    // DEPTH FIRST SEARCH
+    public void dfs(GraphNodeArray startNode){
+      // IMPLEMENTING QUEUE WITH LINKED LIST
+      Stack<GraphNodeArray> stack= new Stack<GraphNodeArray>();
+      stack.push(startNode);
+      while(!stack.isEmpty()){
+        GraphNodeArray node= stack.pop();
+        if(!node.isVisited){
+          node.isVisited= true;
+          System.out.print(node.name+" ");
+          ArrayList<GraphNodeArray> neighbours= getNeighbours(node);
+          for(GraphNodeArray neighbourNode: neighbours){
+            if(!neighbourNode.isVisited){
+              stack.push(neighbourNode);
+            }
+          }
+        }
+      }
+    }
+    public void dfs(){
+      System.out.println("The Depth First Search of the graph:\n");
+      for (GraphNodeArray node : nodeList) {
+        if(!node.isVisited) {
+          dfs(node);
         }
       }
     }

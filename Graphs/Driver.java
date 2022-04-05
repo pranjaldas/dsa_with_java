@@ -1,7 +1,7 @@
 import java.util.*;
 public class Driver {
     public static void main(String args[]){
-        boolean test= false;
+        boolean test= true;
         if(test){
             ArrayList<GraphNodeArray> list= new ArrayList<GraphNodeArray>();
             list.add(new GraphNodeArray("0",0));
@@ -30,7 +30,9 @@ public class Driver {
             mGraph.addUndirectedEdge(4,5);
             mGraph.addUndirectedEdge(5,6);
             System.out.println(mGraph.toString());
-            mGraph.bfs();
+            // mGraph.bfs();
+            System.out.println("hii");
+            mGraph.dfs();
         }else{
             ArrayList<GraphNodeList> list= new ArrayList<GraphNodeList>();
             list.add(new GraphNodeList("A",0));
@@ -54,7 +56,7 @@ public class Driver {
             mGraph.addUndirectedEdge(2,3);
             mGraph.addUndirectedEdge(3,4);
             System.out.println(mGraph.toString());
-            // mGraph.bfs();
+            mGraph.bfs();
             System.out.println();
             mGraph.dfs();
 
