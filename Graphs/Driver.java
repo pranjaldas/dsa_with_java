@@ -1,7 +1,7 @@
 import java.util.*;
 public class Driver {
     public static void main(String args[]){
-        boolean test= true;
+        boolean test= false;
         if(test){
             ArrayList<GraphNodeArray> list= new ArrayList<GraphNodeArray>();
             list.add(new GraphNodeArray("0",0));
@@ -19,7 +19,6 @@ public class Driver {
              *  (4)----(5)
              *   ABOVE IS A GRAPH, REPRESENT IT IN ADJACENT MATRIX
              */
-           
             MyGraphArray mGraph= new MyGraphArray(list);
             mGraph.addUndirectedEdge(0,1);
             mGraph.addUndirectedEdge(0,2);
@@ -33,33 +32,33 @@ public class Driver {
             System.out.println(mGraph.toString());
             mGraph.bfs();
         }else{
-            List<GraphNodeList> list= new ArrayList<GraphNodeList>();
+            ArrayList<GraphNodeList> list= new ArrayList<GraphNodeList>();
             list.add(new GraphNodeList("A",0));
             list.add(new GraphNodeList("B",1));
             list.add(new GraphNodeList("C",2));
             list.add(new GraphNodeList("D",3));
             list.add(new GraphNodeList("E",4));
             MyGraphList mGraph= new MyGraphList(list);
-              /**
+            /**
              *  (A)----(B)
-             *   | \     \
-             *   |   \   (E)
-             *   |     \ /
+             *   |      | \
+             *   |      | (E)
+             *   |      | /
              *  (C)----(D)
              *   ABOVE IS A GRAPH, REPRESENT IT IN LIST
              */
             mGraph.addUndirectedEdge(0,1);
             mGraph.addUndirectedEdge(0,2);
-            mGraph.addUndirectedEdge(0,3);
+            mGraph.addUndirectedEdge(1,3);
             mGraph.addUndirectedEdge(1,4);
             mGraph.addUndirectedEdge(2,3);
             mGraph.addUndirectedEdge(3,4);
             System.out.println(mGraph.toString());
+            // mGraph.bfs();
+            System.out.println();
+            mGraph.dfs();
 
         }
         
-
-        
-
     }
 }
