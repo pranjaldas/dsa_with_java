@@ -1,3 +1,4 @@
+import java.util.List;
 public class HotelService {
     private Database mDatabase;
     public HotelService() {
@@ -9,5 +10,8 @@ public class HotelService {
     }
     public Hotel findHotelById(long id){
        return mDatabase.getHotelById(id);
+    }
+    public List<Hotel> getAll(){
+       return mDatabase.fetchAll();
     }
 }

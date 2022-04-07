@@ -13,6 +13,9 @@ public class Database {
             hotel.getHotelId()== id
         ).findFirst().get();
     }
+    public List<Hotel> fetchAll(){
+        return hotels;
+    }
    
 
    

@@ -1,5 +1,5 @@
 
-public class Hotel {
+public class Hotel implements Comparable<Hotel> {
     private long hotelId;
     private String name;
     private Price price;
@@ -35,6 +35,13 @@ public class Hotel {
     }
     public void setRating(double rating) {
         this.rating = rating;
+    }
+    @Override
+    public int compareTo(Hotel nexthotel){
+        if(this.getRating() > nexthotel.getRating())
+            return 1;
+        else 
+            return -1;
     }
     @Override
     public String toString() {
