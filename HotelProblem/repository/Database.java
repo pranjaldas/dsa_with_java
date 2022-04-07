@@ -1,4 +1,7 @@
+package repository;
 import java.util.*;
+
+import models.Hotel;
 public class Database {
     private List<Hotel> hotels = new ArrayList<>();
 

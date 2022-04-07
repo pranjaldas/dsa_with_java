@@ -1,9 +1,11 @@
+package models;
 
 public class Hotel implements Comparable<Hotel> {
     private long hotelId;
     private String name;
     private Price price;
     private double rating;
+    private long calculativeCost;
     public Hotel(long hotelId, String name, Price price, double rating) {
         this.hotelId = hotelId;
         this.name = name;
@@ -11,6 +13,16 @@ public class Hotel implements Comparable<Hotel> {
         this.rating = rating;
     }
     public Hotel() {
+    }
+    
+    public void setPrice(Price price) {
+        this.price = price;
+    }
+    public long getCalculativeCost() {
+        return calculativeCost;
+    }
+    public void setCalculativeCost(long calculativeCost) {
+        this.calculativeCost = calculativeCost;
     }
     public long getHotelId() {
         return hotelId;
@@ -38,10 +50,18 @@ public class Hotel implements Comparable<Hotel> {
     }
     @Override
     public int compareTo(Hotel nexthotel){
-        if(this.getRating() > nexthotel.getRating())
-            return 1;
-        else 
-            return -1;
+        if(this.getCalculativeCost()==nexthotel.calculativeCost){
+            if(this.getRating() > nexthotel.getRating())
+                return -1;
+            else 
+                return 1;
+        }else{
+            // System.out.println(this.calculativeCost+" i am here with"+nexthotel.getCalculativeCost());
+            if(this.getCalculativeCost() < nexthotel.getCalculativeCost())
+                return -1;
+            else 
+                return 1;
+        }
     }
     @Override
     public String toString() {

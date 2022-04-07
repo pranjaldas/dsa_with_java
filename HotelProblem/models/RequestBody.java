@@ -1,3 +1,6 @@
+package models;
+import utils.CustomerType;
+
 public class RequestBody {
     private CustomerType customerType;
     private String dateRange;
