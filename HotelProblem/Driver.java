@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import models.Hotel;
@@ -6,6 +7,7 @@ import models.Price;
 import models.RequestBody;
 import service.DateConversionService;
 import service.HotelService;
+import service.PriceService;
 import utils.CustomerType;
 
 import java.io.IOException;
@@ -13,77 +15,53 @@ import java.util.Arrays;
 import java.util.Collections;
 public class Driver {
     public static HotelService hotelService;
+    public static PriceService priceService;
     public static void main(String args[]) throws InterruptedException, IOException{
         hotelService = new HotelService();
+        priceService = new PriceService();
         initialization();
-        // System.out.println(hotelService.findHotelById(1).toString());
-        // List<Hotel> hotels = hotelService.getAll();
-        // Collections.sort(hotels);
-        // System.out.println(Arrays.toString(hotels.toArray()));
-        RequestBody request = new RequestBody(CustomerType.REGULAR,"27Mar2022,26Mar2022");
-        List<String> days= DateConversionService.convertToDay(request.getDateRange());
-        //System.out.println(Arrays.toString(days.toArray()));
-        List<Hotel> bestHotels = hotelService.findBestHotel(request.getCustomerType(), days);
-        Collections.sort(bestHotels);
+    
+        RequestBody request = new RequestBody(CustomerType.REGULAR,"26Mar2022,29Mar2022");
+        List<String> dates= DateConversionService.findAlldatesBetween(request.getDateRange());
+        hotelService.findBestHotelList(request.getCustomerType(), dates);
+        System.out.println();
+        System.out.println("Please wait.");
+        System.out.println("Please wait..");
+        System.out.println("Please wait...");
+        System.out.println("The Best hotel is: "+hotelService.findBestHotel(request.getCustomerType(), dates));
+
         
-        String anim= "|/-\\";
-        try {
-            for (int x =0 ; x < 50 ; x++) {
-                String data = "\r" + anim.charAt(x % anim.length()) + " " + x;
-                System.out.write(data.getBytes());
-                Thread.sleep(100);
-            }
-            System.out.println();
-            // for (Hotel hotel : bestHotels) {
-            //     System.out.println("Hotel name: "+hotel.getName()+", rating: "+hotel.getRating()+", calculative price: "+hotel.getCalculativeCost());
-            // }
-            System.out.println("Best Suggested Hotel name: "+bestHotels.get(0).getName()+", rating: "+bestHotels.get(0).getRating()+", calculative price: "+bestHotels.get(0).getCalculativeCost());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-       
-
       
         
-        
-        
-
-
-
-
-
+    
     }
     public static void initialization(){
-        HashMap<CustomerType,Long> weekdayPrice= new HashMap<>();
-        weekdayPrice.put(CustomerType.REGULAR, Long.valueOf(1100));
-        weekdayPrice.put(CustomerType.REWARDS,Long.valueOf(800));
-        HashMap<CustomerType,Long> weekendPrice= new HashMap<>();
-        weekendPrice.put(CustomerType.REGULAR, Long.valueOf(900));
-        weekendPrice.put(CustomerType.REWARDS,Long.valueOf(800));
-        Hotel coconutValley= new Hotel(1,"Coconut Valley",
-        new Price(1,weekdayPrice,weekendPrice),3.0);
+        Hotel coconutValley= new Hotel(1,"Coconut Valley",3.0);
+        List<Price> h1prices= new LinkedList<>();
+        h1prices.add(new Price(1,1,CustomerType.REGULAR,Long.valueOf(900),Long.valueOf(1100)));
+        h1prices.add(new Price(2,1,CustomerType.REWARDS,Long.valueOf(800),Long.valueOf(800)));
+        coconutValley.setPrices(h1prices);
         hotelService.saveHotel(coconutValley);
-      
-        HashMap<CustomerType,Long> weekdayPrice1= new HashMap<>();
-        weekdayPrice1.put(CustomerType.REGULAR, Long.valueOf(1100));
-        weekdayPrice1.put(CustomerType.REWARDS,Long.valueOf(800));
-        HashMap<CustomerType,Long> weekendPrice1= new HashMap<>();
-        weekendPrice1.put(CustomerType.REGULAR, Long.valueOf(900));
-        weekendPrice1.put(CustomerType.REWARDS,Long.valueOf(800));
-        Hotel akulamLake= new Hotel(2,"Akulam Lake",
-        new Price(2,weekdayPrice1,weekendPrice1),4.0);
-        hotelService.saveHotel(akulamLake);
+        priceService.addAllPrices(h1prices);
 
-        HashMap<CustomerType,Long> weekdayPrice2= new HashMap<>();
-        weekdayPrice2.put(CustomerType.REGULAR, Long.valueOf(2200));
-        weekdayPrice2.put(CustomerType.REWARDS,Long.valueOf(1000));
-        HashMap<CustomerType,Long> weekendPrice2= new HashMap<>();
-        weekendPrice2.put(CustomerType.REGULAR, Long.valueOf(1500));
-        weekendPrice2.put(CustomerType.REWARDS,Long.valueOf(400));
-        Hotel valiBeach= new Hotel(3,"Vali Beach",
-        new Price(3,weekdayPrice2,weekendPrice2),5.0);
+        Hotel akulamLake= new Hotel(2,"Akulam Lake",4.0);
+        List<Price> h2prices= new LinkedList<>();
+        h2prices.add(new Price(3,2,CustomerType.REGULAR,Long.valueOf(900),Long.valueOf(1100)));
+        h2prices.add(new Price(4,2,CustomerType.REWARDS,Long.valueOf(800),Long.valueOf(800)));
+        akulamLake.setPrices(h2prices);
+        hotelService.saveHotel(akulamLake);
+        priceService.addAllPrices(h2prices);
+
+        Hotel valiBeach= new Hotel(3,"Vali Beach",5.0);
+        List<Price> h3prices= new LinkedList<>();
+        h3prices.add(new Price(5,3,CustomerType.REGULAR,Long.valueOf(1500),Long.valueOf(2200)));
+        h3prices.add(new Price(6,3,CustomerType.REWARDS,Long.valueOf(400),Long.valueOf(1000)));
+        valiBeach.setPrices(h3prices);
         hotelService.saveHotel(valiBeach);
+        priceService.addAllPrices(h3prices);
+
+        
+
     }
     
 }

@@ -1,32 +1,23 @@
 package models;
-import java.util.HashMap;
-
 import utils.CustomerType;
-import utils.Utils;
 public class Price {
+    
     private long id;
-    private HashMap<CustomerType,Long> weekdayPrice;
-    private HashMap<CustomerType,Long> weekendPrice;
-    private HashMap<String,HashMap<CustomerType,Long>> price;
+    private long hotelId;
+    private CustomerType customerType;
+    private long weekendPrice;
+    private long weekdayPrice;
+    
+
+    public Price(long id, long hotelId, CustomerType customerType, long weekendPrice, long weekdayPrice) {
+        this.id = id;
+        this.hotelId = hotelId;
+        this.customerType = customerType;
+        this.weekendPrice = weekendPrice;
+        this.weekdayPrice = weekdayPrice;
+    }
 
     public Price() {
-    }
-
-    public Price(long id, HashMap<CustomerType, Long> weekdayPrice, HashMap<CustomerType, Long> weekendPrice) {
-        this.id = id;
-        this.weekdayPrice = weekdayPrice;
-        this.weekendPrice = weekendPrice;
-        this.price = new HashMap<>();
-        this.price.put(Utils.WEEKDAY,weekdayPrice);
-        this.price.put(Utils.WEEKEND,weekendPrice);
-    }
-
-    public HashMap<String, HashMap<CustomerType, Long>> getPrice() {
-        return price;
-    }
-
-    public void setPrice(HashMap<String, HashMap<CustomerType, Long>> price) {
-        this.price = price;
     }
 
     public long getId() {
@@ -37,26 +28,44 @@ public class Price {
         this.id = id;
     }
 
-    public HashMap<CustomerType, Long> getWeekdayPrice() {
-        return weekdayPrice;
+    public long getHotelId() {
+        return hotelId;
     }
 
-    public void setWeekdayPrice(HashMap<CustomerType, Long> weekdayPrice) {
-        this.weekdayPrice = weekdayPrice;
+    public void setHotelId(long hotelId) {
+        this.hotelId = hotelId;
     }
 
-    public HashMap<CustomerType, Long> getWeekendPrice() {
+    public CustomerType getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
+    }
+
+    public long getWeekendPrice() {
         return weekendPrice;
     }
 
-    public void setWeekendPrice(HashMap<CustomerType, Long> weekendPrice) {
+    public void setWeekendPrice(long weekendPrice) {
         this.weekendPrice = weekendPrice;
+    }
+
+    public long getWeekdayPrice() {
+        return weekdayPrice;
+    }
+
+    public void setWeekdayPrice(long weekdayPrice) {
+        this.weekdayPrice = weekdayPrice;
     }
 
     @Override
     public String toString() {
-        return "Price [id=" + id + ", weekdayPrice=" + weekdayPrice + ", weekendPrice=" + weekendPrice + "]";
+        return "Price [customerType=" + customerType + ", hotelId=" + hotelId + ", id=" + id + ", weekdayPrice="
+                + weekdayPrice + ", weekendPrice=" + weekendPrice + "]";
     }
-   
+    
 
+   
 }
