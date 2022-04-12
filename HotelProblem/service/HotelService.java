@@ -8,7 +8,7 @@ import models.ResponseBody;
 import repository.Database;
 import utils.CustomerType;
 import utils.Utils;
-public class HotelService {
+public class HotelService{
     private Database mDatabase;
     public HotelService() {
         this.mDatabase= Database.getDbInstance();
@@ -23,7 +23,7 @@ public class HotelService {
     public List<Hotel> getAll(){
         return mDatabase.fetchAll();
     }
-    public void findBestHotelList(CustomerType tCustomerType, List<String> dates){
+    synchronized public void findBestHotelList(CustomerType tCustomerType, List<String> dates){
         List<ResponseBody> results = new LinkedList<>();
         mDatabase.fetchAll().forEach(hotel->{
             long price= 0L;
@@ -55,4 +55,6 @@ public class HotelService {
         Collections.sort(results);
         return results.get(0).getHotelName();
     }
+   
+
 }
