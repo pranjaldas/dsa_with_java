@@ -4,6 +4,7 @@ public class Driver{
          * MIND THAT WE ARE USING ONLY ONE PRINTER OBJECT IN BOTH THE THREADS 
          * TO PRINT, I HAVE MADE THE PRINT() METHOD SYNCHRONIZED SO THAT AFTER T1 THREAD COMPLETES 
          * THE TASK T2 START ITS TASK 
+         * HERE PRINTER OBJECT IS THE SHARED RESOURCE BETWEEN THW TWO THREADS
          */
         Printer printer =new Printer();
         MyThreadOne t1= new MyThreadOne(printer,"@THREAD_1");
