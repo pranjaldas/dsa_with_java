@@ -1,4 +1,5 @@
 public class Food {
+    public static int ID= 1;
     private String taste;
     Food(String taste){
         this.taste=taste;

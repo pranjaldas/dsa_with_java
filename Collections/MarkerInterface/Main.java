@@ -6,9 +6,9 @@ class Main{
         try{
             food.canEat();
             food1.canEat();
-
         }catch(FoodNotEadableException e){
             System.out.println(e.getMessage());
         }
+        
     }
 }
