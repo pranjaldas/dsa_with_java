@@ -1,5 +1,22 @@
 public class Test {
     public static void main(String[] args){
-        System.out.println("Starting collections framework");
+        Runnable runnable= new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Hellow Task");
+            }
+        };
+        Thread t1= new Thread(runnable);
+        t1.start();
+        Testable testable= () -> System.out.println("going");
+        testable.go();
+        testable.sayHii();
+    }
+}
+@FunctionalInterface
+interface Testable{
+    void go();
+    default void sayHii(){
+        System.out.println("Ok Hi, Hellow");
     }
 }
