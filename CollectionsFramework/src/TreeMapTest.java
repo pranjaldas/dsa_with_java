@@ -17,8 +17,11 @@ public class TreeMapTest {
         tmap.put(8,23);
         tmap.put(6,2);
         tmap.put(5,10);
-
-
         tmap.forEach((k,v)-> System.out.println("key: "+k+"value: "+v));
+
+        int id=10;
+    }
+    public static void foo(int ids){
+        int id=ids;
     }
 }
