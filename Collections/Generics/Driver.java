@@ -26,6 +26,11 @@ class Driver{
         listTwo.add(new Cat("Meew",4));
         printList(listTwo);
 
+        System.out.println("*****************");
+        Storage<Animal> storage= new Storage<>();
+        storage.store(listOne);
+
+
        
     }
     // DEMONSTRATE TO GENERIC METHODS, WITH GENERIC ARGUMENTS
@@ -40,4 +45,5 @@ class Driver{
     public static void printList(List<? extends Animal> list){
         list.forEach(i->System.out.println(i.toString()));
     }
+
 }
