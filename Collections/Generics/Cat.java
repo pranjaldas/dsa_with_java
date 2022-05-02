@@ -4,6 +4,9 @@ class Cat extends Animal{
         super(sound);
         this.numberOfLegs= numberOfLegs;
     }
+    Cat(){
+        
+    }
 
 
     /**

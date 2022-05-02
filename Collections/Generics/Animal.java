@@ -3,6 +3,7 @@ class Animal{
     Animal(String sound){
         this.sound= sound;
     }
+    Animal(){}
     public void sound(String sound){
         System.out.println(sound);
     }

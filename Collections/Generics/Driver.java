@@ -30,6 +30,18 @@ class Driver{
         Storage<Animal> storage= new Storage<>();
         storage.store(listOne);
 
+        // LOWER BOUND
+        System.out.println("______LOWERBOUND__________");
+        List<Animal> animalList= new ArrayList<>();
+        store(animalList);
+        // THE BOLOW WILL GIVE COMPILATION ERROR BECAUSE OF LOWER BOUND 
+        // TO METHOD store(List list) ACCEPTS LISTS WHICH ARE LIST OF SUPERTYPE OF 
+        // CATS, SINCE REDCAT IS NOT SUPER OF CAT AND WE HAVE PASSED A REDCAT LIST SO IT IS 
+        // GIVING COMPILE TIME ERROR
+        // List<RedCat> redcatlist= new ArrayList<>();
+        // store(redcatlist);
+
+
 
        
     }
@@ -44,6 +56,10 @@ class Driver{
     // DEMONSTRATE TO UPPER BOUNDED WILDCARDS
     public static void printList(List<? extends Animal> list){
         list.forEach(i->System.out.println(i.toString()));
+    }
+    public static void store(List<? super Cat> list){
+        list.add(new RedCat());
+        System.out.println("Cat added"+list.get(0));
     }
 
 }
