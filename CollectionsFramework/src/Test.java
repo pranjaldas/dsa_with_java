@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 public class Test {
     public static void main(String[] args){
+        String str= "Hii";
+        String str1= "Hii";
+        System.out.println(str.hashCode() +" "+str1.hashCode());
         Runnable runnable= new Runnable() {
             @Override
             public void run() {
