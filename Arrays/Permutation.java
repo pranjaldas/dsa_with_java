@@ -5,7 +5,7 @@ public class Permutation {
     public static void main(String[] args) throws Exception {
         int[] array1 = {1,2,3,4,5};
         int[] array2 = {1,3,2,7,5};
-        System.out.println("Palindrome status: "+checkPermutation(array1, array2));
+        System.out.println("Permutation status: "+checkPermutation(array1, array2));
 
     }
     // BRUITE FORCE APPROACH WITH COMPLEXITY O(m*n)
