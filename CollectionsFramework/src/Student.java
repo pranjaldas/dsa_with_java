@@ -1,4 +1,4 @@
-class Student {
+class Student implements Cloneable {
     private String name;
     private Integer cgpa;
 
@@ -9,6 +9,9 @@ class Student {
         this.name = name;
         this.cgpa = cgpa;
     }
+    protected  void sayHii(){
+        System.out.println("METHOD TO TEST PROTECTED");
+    }
 
     public Integer getCgpa() {
         return cgpa;
@@ -16,6 +19,12 @@ class Student {
 
     public String getName() {
         return name;
+    }
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+
+        return super.clone();
+
     }
 
     @Override

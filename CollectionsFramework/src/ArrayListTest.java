@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class ArrayListTest {
     public static void main(String[] args){
@@ -19,6 +20,9 @@ public class ArrayListTest {
         studentArrayList.add(s2);
         studentArrayList.add(new Student("anno",3));
         System.out.println(studentArrayList.contains(s1));
-
+        ListIterator listIterator= studentArrayList.listIterator();
+        while (listIterator.hasNext()){
+            System.out.println(listIterator.next().toString());
+        }
     }
 }

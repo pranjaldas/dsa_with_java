@@ -14,6 +14,12 @@ class Driver{
         System.out.println("COMPARISION: "+str1.equals(str2));
         System.out.println("IGNORECASE :"+"Hii".equalsIgnoreCase("hii"));
 
+        // SUBSTRING
+        System.out.println("SUBSTRING".substring(1,3));
+        System.out.println("SUBSTRING".substring(3));
+
+        
+
 
     }
     

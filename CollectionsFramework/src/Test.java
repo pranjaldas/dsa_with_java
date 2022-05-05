@@ -1,7 +1,14 @@
 import java.util.ArrayList;
 
-public class Test {
+public class Test  {
     public static void main(String[] args){
+        Student student= new Student();
+        Student student1;
+        try {
+            student1 = (Student) student.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
         String str= "Hii";
         String str1= "Hii";
         System.out.println(str.hashCode() +" "+str1.hashCode());
