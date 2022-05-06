@@ -1,7 +1,10 @@
-import java.util.ArrayList;
+import abstraction.AbsTest;
 
 public class Test  {
     public static void main(String[] args){
+        String i= "5678";
+
+        System.out.println(new Integer(i).hashCode());
         Student student= new Student();
         Student student1;
         try {

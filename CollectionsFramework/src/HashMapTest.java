@@ -13,6 +13,7 @@ public class HashMapTest {
         hmap.put(null,"hola");
         hmap.put(4,null);
         hmap.put(5,null);
+        System.out.println(hmap.put(1,"new value"));
         hmap.forEach((key,value)->{
             System.out.println("key: "+key+" value: "+value);
         });
