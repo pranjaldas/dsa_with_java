@@ -2,6 +2,13 @@ import abstraction.AbsTest;
 
 public class Test  {
     public static void main(String[] args){
+        final Student studentFinal= new Student();
+        studentFinal.setCgpa(1);
+        System.out.println("final object"+studentFinal.toString());
+
+
+
+
         String i= "5678";
 
         System.out.println(new Integer(i).hashCode());

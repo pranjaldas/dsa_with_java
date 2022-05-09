@@ -9,6 +9,15 @@ class Student implements Cloneable {
         this.name = name;
         this.cgpa = cgpa;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCgpa(Integer cgpa) {
+        this.cgpa = cgpa;
+    }
+
     protected  void sayHii(){
         System.out.println("METHOD TO TEST PROTECTED");
     }
