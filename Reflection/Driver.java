@@ -3,7 +3,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.*;
 
 class Driver{
+    static boolean test;
     public static void main(String args[]){
+
         try {
             Class c= Class.forName("Test");
             Test t= (Test) c.newInstance();
