@@ -1,4 +1,3 @@
-package dsa_with_java.RandomQuestions;
 import java.util.*;
 // PROBLEM TO TEST CALL BY VALUE AND CALL BY REFERENCE IN JAVA
 // JAVA USES CALL BY REFERENCE ONLY

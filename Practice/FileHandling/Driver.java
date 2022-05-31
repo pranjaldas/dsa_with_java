@@ -19,6 +19,22 @@ class Driver{
             // file.delete();
             // File newFile= file.getAbsoluteFile();
             // System.out.println(newFile.getName());
+           
+            try {
+                FileWriter writer= new FileWriter(file);
+                writer.write(" Hola World \n Namaskar \n Hellow world");
+                writer.close();
+                FileReader reader= new FileReader(file);
+                int i;
+                while((i = reader.read()) != -1) {
+                    System.out.print((char)i);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            
+
+
 
         }else{
             System.out.println("file not exists");
@@ -31,11 +47,11 @@ class Driver{
             }
            
         }
-        File file1= new File("files");
-        new File("files/mydir").mkdir();
-        String[] files= file1.list();
-        System.out.println("Listing out the files");
-        Arrays.asList(files).forEach(i->System.out.println(i));
+        // File file1= new File("files");
+        // new File("files/mydir").mkdir();
+        // String[] files= file1.list();
+        // System.out.println("Listing out the files");
+        // Arrays.asList(files).forEach(i->System.out.println(i));
             
     }
 }
