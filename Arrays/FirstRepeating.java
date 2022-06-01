@@ -22,9 +22,6 @@ public class FirstRepeating {
                map.put(array[i],1);
            }
        }
-    //    for (Integer key : map.keySet()) {
-    //     System.out.println("Value: "+key + " Occurance: " + map.get(key));
-    //    }
        Integer firstRepeating=0;
        for (Integer key : map.keySet()) {
          if(map.get(key)>1){
