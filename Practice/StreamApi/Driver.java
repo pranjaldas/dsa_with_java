@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 public class Driver {
+    public static final int SALARY_BENCH= 1000;
     public static void main(String[] args){
         List<Student> students= new ArrayList<>();
         students.add(new Student("Pranjal",1293));
@@ -27,7 +28,18 @@ public class Driver {
         System.out.println("With heighst salary: "+student.toString());
 
         // -------------------------Filter a list based on a given value using Stream------------------------
-        List<Student> list=students.stream().filter((s)->s.getSalary()>1000).collect(Collectors.toList());
+        List<Student> list=students.stream().filter((s)->s.getSalary()>SALARY_BENCH).collect(Collectors.toList());
         list.forEach(i->System.out.println(i.toString()));
+
+
+        Student s1= new Student("Pranjal",123);
+        Student s2= s1;
+        Student s3= new Student("Pranjal",123);
+        // System.out.println("TESTING :"+s1.hashCode());
+        System.out.println(s2==s3);
+        System.out.println(s2.hashCode() + " "+ s1.hashCode());
+
+
+
     }
 }
