@@ -5,6 +5,7 @@
  */
 import java.util.Map;
 import java.util.LinkedHashMap;
+import java.util.Optional;
 public class FirstNonRepeating {
     public static void main(String[] args){
         Integer[] array= {2,5,1,3,9,9,3};
@@ -29,6 +30,13 @@ public class FirstNonRepeating {
             break;
          }
        }
+       // NOW I WILL PERFORM THE ABOVE TASK USING STREAM
+       Optional<Integer> fno= map.keySet()
+                            .stream()
+                            .filter(i->map.get(i)==1)
+                            .findAny();
+       if(fno.isPresent()) 
+            System.out.println(fno.get()); 
        System.out.println("First non repeating element is: "+firstRepeating);
 
 
