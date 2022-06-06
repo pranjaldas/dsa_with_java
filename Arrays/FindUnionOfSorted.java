@@ -13,6 +13,8 @@ public class FindUnionOfSorted {
         int i=0,j=0;
         while(i<m && j<n){
             if(arr1[i]< arr2[j]){
+                //NOTE HERE i++ also increments the value of i after the item fetch from array
+                // to stop it we can use i+1, but here it is fufilling my need 
                 System.out.print(arr1[i++] +" ");
                 
             }else if(arr2[j]< arr1[i]){

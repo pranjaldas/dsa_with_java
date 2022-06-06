@@ -1,5 +1,5 @@
 /**
- * FIND THE SUB ARRAYS WITH THE GIVEN SUM INSIDE AN ARRAY
+ * FIND THE CONTINOUS SUB ARRAYS WITH THE GIVEN SUM INSIDE AN ARRAY
  */
 class FindSubArrayWithSum{
     public static void main(String args[]){
