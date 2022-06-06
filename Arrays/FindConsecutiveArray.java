@@ -9,7 +9,7 @@ public class FindConsecutiveArray {
     public static void main(String[] args){
         int[] array= {1, 9, 3, 10, 4, 20, 2, 3};
         int[] array2= {1, 4, 6, 10, 4, 20, 14, 17};
-        findTheConsecutive(array2);
+        findTheConsecutive(array);
     }
     // SORT THE ARRAY FIRST
     // REMOVE THE DUPLICATES
@@ -43,20 +43,22 @@ public class FindConsecutiveArray {
        Integer lastConsLength= 0;
 
        Integer[] arraynew= set.toArray(new Integer[0]);
+       Map<Integer,List<Integer>> conmaps= new HashMap<>();
      
         for(int i=0; i< arraynew.length-1;i++){
             int j=i+1;
             int a= arraynew[i]+1;
             int b= arraynew[j];
             consecutives.add(array[i]);
-            System.out.println(String.format("a: %d and b: %d size: %d",a,b,consecutives.size()));
+            //System.out.println(String.format("a: %d and b: %d size: %d",a,b,consecutives.size()));
             if(a!=b){
                 if(consecutives.size() > lastConsLength){
-                    System.out.println("I am here");
+                    //System.out.println("I am here");
+                    
                     lastConsLength= consecutives.size();
                 }
                 consecutives.clear();
-                System.out.println("I AM HER: "+ lastConsLength);
+                //System.out.println("I AM HER: "+ lastConsLength);
                 
             }
             
