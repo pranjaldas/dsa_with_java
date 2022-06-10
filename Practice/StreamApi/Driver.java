@@ -83,13 +83,26 @@ public class Driver {
         Predicate<Student> combinedCon= salMore.and(ageMore);
         boolean checkComCon= studentsListnew.stream().anyMatch(combinedCon);
         System.out.println(checkComCon);
-
         List<Student> studentsupdlist= studentsListnew.stream()
                                         .filter(combinedCon)
                                         .collect(Collectors.toList());
         System.out.println(studentsupdlist);
 
 
+
+        // --------------------------
+        // INCREASE SALARY by 10% OF ALL EMPLOYEES WHOSE SALARY GREATER THAN 1000
+
+        List<Student> finalLsit=studentsListnew.stream().filter(i-> i.getSalary()>2800)
+                                .map(s->new Student(s.getName(),((long)s.getSalary()*10/100)+s.getSalary(),s.getAge()))
+                                .collect(Collectors.toList());
+        List<Student> sortStudents= studentsListnew.stream()
+                                .map(s->{
+                                    if(s.getSalary()> 2500)
+                                       s.setSalary(((long) s.getSalary()* 10/100)+s.getSalary());
+                                    return s;
+                                }).collect(Collectors.toList());
+        System.out.println("Final list of students after increment"+ sortStudents);
 
 
 
