@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * ONE NULL KEY AND MULTIPLE NULL VALUE
@@ -22,5 +23,27 @@ public class HashMapTest {
         Iterator iterator= keys.iterator();
         while(iterator.hasNext())
             System.out.println(hmap.get(iterator.next()));
+        System.out.println("---------SORT HASHMAP BASED ON VALUE-------");
+        Map<String,Integer> map= new HashMap<>();
+        map.put("jbjk",5);
+        map.put("Cvsdv",4);
+        map.put("Avsdv",1);
+        map.put("ABC",2);
+        map.forEach((k,v)->{
+            System.out.println("key: "+k+" value: "+v);
+        });
+        LinkedHashMap<String,Integer> sortedMap= map.entrySet().stream().sorted((i,j)->{
+            if(i.getValue()> j.getValue())
+                return 1;
+            else
+                return -1;
+        }).collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (e1, e2) -> e1, LinkedHashMap::new));
+        System.out.println("---------SORT HASHMAP BASED ON VALUE-------");
+        sortedMap.forEach((k,v)->{
+            System.out.println("key: "+k+" value: "+v);
+        });
     }
 }
