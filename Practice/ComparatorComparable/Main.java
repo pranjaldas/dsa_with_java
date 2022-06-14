@@ -3,8 +3,10 @@ class Main{
     public static void main(String[] args){
         // Comparable is used in the scenarios where We could modify the Model object.
         // Comparator is used in the scenarious when we could not modify the object 
-        // as example id the model or the class imported from 3rd party library
-        // in this kind of scenario we use comparable for sorting
+        // as example the class imported from 3rd party library we could not modify the class in this case
+        // in this kind of scenario we use comparable for sorting, or else we use Comparator interface
+        // FOr natural ordering like for 1,2,3,4 and a,b,c,d we go for Comparable and use compareTo() method
+        // and for custom ordering we go for Comparator and it's compare() method
         // Collections.sort method accepts two params, one as list of objects and the comparator object 
         // or the list of objects only
         ArrayList<Laptop> laptops=new ArrayList<Laptop>();

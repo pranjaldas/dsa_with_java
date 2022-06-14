@@ -17,5 +17,16 @@ public class BufferedReaderTest {
         String input= breader.readLine();
         System.out.println(input);
 
+
+        System.out.println("------------FileReader--------------");
+        FileReader fr= new FileReader(new File("files/data.txt"));
+        int i;
+        while ((i = fr.read()) != -1) {
+ 
+            // Printing  the content inside the file
+            System.out.print((char)i);
+        }
+        fr.close();
+
     }
 }
