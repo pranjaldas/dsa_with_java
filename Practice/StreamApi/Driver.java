@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -9,10 +11,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Arrays;
+import java.util.Set;
 import java.util.NoSuchElementException;
 public class Driver {
     public static final int SALARY_BENCH= 1000;
     public static void main(String[] args){
+
         List<Student> students= new ArrayList<>();
         students.add(new Student("Pranjal",1293));
         students.add(new Student("Akrur",231));
@@ -103,6 +107,73 @@ public class Driver {
                                     return s;
                                 }).collect(Collectors.toList());
         System.out.println("Final list of students after increment"+ sortStudents);
+
+
+        System.out.println("------------------FIND DUPLICATE ELEMENTS IN AN LIST USING STREAM------------------------");
+        List<Integer> intList= new ArrayList<>();
+        intList.add(5);
+        intList.add(6);    
+        intList.add(5);
+        intList.add(6);
+        intList.add(2);
+        intList.add(1);
+        intList.add(10);
+        intList.add(9);    
+        Set<Integer> mySet= new HashSet<>();
+        // here we took advantage of add() method of set which returns true if added else false.
+        
+        intList.stream().filter((e)->!mySet.add(e))
+                        .collect(Collectors.toSet())
+                        .forEach((e)->System.out.println(e));
+
+    
+        System.out.println("------------------COUNT THE REPETATION OF EVERY WORDS IN A SENTANCE---------------------------");
+        String str= "My name is Pranjal Das geeks for geeks is a best best site";
+        List<String> wordList= Arrays.asList(str.split(" "));
+        Map<String, Long> wordCount=wordList.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+        System.out.println(wordCount);
+        
+        
+        // -------------------------------------Collectors.groupingBy(), It is similar like groupby in sql ---------------------------------------
+        System.out.println("------------------COUNT THE REPETATION OF EVERY WORDS IN A SENTANCE---------------------------");
+        List<Student> studentList= new ArrayList<>();
+        studentList.add(new Student("Pranjal",2300,27));
+        studentList.add(new Student("Akrur",2400,24));
+        studentList.add(new Student("Vinod",2400,27));
+        studentList.add(new Student("Amlan",2400,24));
+        studentList.add(new Student("Gitartha",2400,24));
+        System.out.println(studentList.stream()
+        .collect(Collectors.groupingBy(Student::getAge,Collectors.summingLong(Student::getSalary))));
+        System.out.println(studentList.stream()
+        .collect(Collectors.groupingBy(Student::getAge)));
+        System.out.println(studentList.stream()
+        .collect(Collectors.groupingBy(Student::getAge,Collectors.mapping(Student::getName, Collectors.toList()))));
+        
+        // -------------------------------------skip(),limit() ---------------------------------------
+        System.out.println("------------------skip() and limit()---------------------------");
+        List<Integer> intlist= Arrays.asList(new Integer[] {1,2,3,4,5,6,7,8});
+        intList.stream()
+            .limit(3)
+            .forEach(i -> System.out.print(i + " "));
+            System.out.println();
+            intlist.stream()
+            .skip(2)
+            .forEach(i -> System.out.print(i + " "));
+        List<Integer> numbersList = new ArrayList<>();
+        numbersList.add(1);
+        numbersList.add(2);
+        numbersList.add(3);
+        numbersList.add(4);
+        numbersList.add(5);
+        numbersList.add(6);
+    
+        // Limit - return new stream of 3 elements
+        System.out.println("--------Stream elements after limiting----------");
+        numbersList.stream().limit(3).forEach((a) -> {
+            System.out.println(a);
+        });
+        
+
 
 
 
