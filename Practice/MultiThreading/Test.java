@@ -36,7 +36,9 @@ class Test {
 
         new Thread(new Task("T1",1)).start();
         new Thread(new Task("T2",2)).start();
-        new Thread(new Task("T3",0)).start();
+        Thread t3= new Thread(new Task("T3",0));
+        t3.start();
+     
         
     }
    

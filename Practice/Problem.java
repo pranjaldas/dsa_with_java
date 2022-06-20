@@ -24,6 +24,8 @@ class D extends C{
 }
 public class Problem{
     public static void main(String[] args){
-        System.out.println("Hii"+A.num);
+        int i=127;
+        System.out.println(++i);
+        System.out.println(i);
     }
 }
