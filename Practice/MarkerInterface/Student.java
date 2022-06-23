@@ -1,6 +1,11 @@
 public class Student implements Cloneable{
     private int roll;
     private String name;
+    public static int standard;
+    static{
+        //STATIC BLOCK TO INITIALIZE THE VARIABLE
+        standard= 5;
+    }
     Student(){
         // DEFAULT CONSTRUCTOR
     }

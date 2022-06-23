@@ -9,6 +9,8 @@ class Main{
         }catch(FoodNotEadableException e){
             System.out.println(e.getMessage());
         }
+       
+        System.out.println(Student.standard);
         
     }
 }
