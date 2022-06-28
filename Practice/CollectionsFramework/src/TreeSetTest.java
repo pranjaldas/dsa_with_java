@@ -1,6 +1,7 @@
 import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.function.Function;
 
 public class TreeSetTest {
     public static void main(String[] args){
