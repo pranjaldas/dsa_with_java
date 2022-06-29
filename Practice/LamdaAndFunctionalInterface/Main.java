@@ -1,3 +1,4 @@
+import java.util.function.Function;
 public class Main {
     public static void main(String args[]){
         // FUNCTIONAL INTERFACE IMPLEMENTATION USING A SEPERATE CLASS IMPLEMENTATION
@@ -20,5 +21,12 @@ public class Main {
         // DO NOT NEED { }, IF THERE IS A SINLE LINE STATEMENT INSIDE THE FUNCTION BODY
         FunctionalInterface<Integer> obj2= (Integer integer)-> integer * 5;
         System.out.println(obj2.getSpeed(5));
+
+        // FUNCTION INTERFACE IMPLEMENTATION USING FUNCTION CLASS
+        // HERE WE DO NOT NEED TO DECLARE A DIFFERENT FUNCTIONAL INTERFACE
+        Function<Laptop,Integer> function= laptop -> laptop.getRam()* 2;
+        Laptop laptop = new Laptop("LENOVO",78000,4);
+        System.out.println("BY using Function class :"+ function.apply(laptop));
+        
     }
 }
