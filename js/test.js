@@ -12,9 +12,14 @@ const getJSON = async () => {
 //     console.log(error);
 // })
 const getDatas = async() =>{
-    return 123;
+    return [{name: "Pranjal Das",age:27},{name: "Druna Baruah",age:22}];
 }
 getDatas().then((data)=>{
-    console.log(data)
+    console.table(data);
+    data.forEach((each)=>{
+        console.table(each);
+    });
+}).catch((error)=>{
+    console.log(error);
 });
 
